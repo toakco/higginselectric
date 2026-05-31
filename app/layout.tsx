@@ -29,6 +29,10 @@ export const metadata: Metadata = {
   title: `${business.name} · ${business.tagline}`,
   description: `Family owned Connecticut electrical contractor. Commercial, industrial, residential, generators. Serving ${business.serviceArea}.`,
   metadataBase: new URL("https://higginselectric.com"),
+  icons: {
+    icon: "/higginselectric/assets/brand/higgins-favicon.png",
+    apple: "/higginselectric/assets/brand/higgins-favicon.png",
+  },
   openGraph: {
     title: `${business.name} · ${business.tagline}`,
     description: `Family owned Connecticut electrical contractor. Commercial, industrial, residential, and generators.`,
