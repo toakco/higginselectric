@@ -8,7 +8,7 @@ export const business = {
   legalName: "Higgins Electric, Inc.",
   parent: "Higgins Enterprise",
   tagline: "Power. Delivered.",
-  phone: "(860)267-7644",
+  phone: "(860) 267-7644",
   email: "Power4U@higginsElec.com",
   address: {
     street: "68 Middletown Ave",
