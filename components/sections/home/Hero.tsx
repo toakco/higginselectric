@@ -76,7 +76,7 @@ export function Hero() {
           style={{ transformOrigin: "center" }}
         >
           <Image
-            src="/assets/brand/higgins-logo-full.png"
+            src="/assets/brand/Higgins-Logo-white.png"
             alt="Higgins Electric"
             width={1200}
             height={300}
