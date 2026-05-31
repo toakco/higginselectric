@@ -15,7 +15,7 @@ export function HigginsLogo({ className, full = true, variant = "light" }: Props
   const src =
     variant === "dark"
       ? "/assets/brand/higgins-logo-black.png"
-      : "/assets/brand/higgins-logo-white.png";
+      : "/assets/brand/Higgins-Logo-white.png";
 
   if (!full) {
     return (
