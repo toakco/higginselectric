@@ -3,6 +3,7 @@
 import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { services } from "@/lib/services";
+import { servicePages } from "@/lib/service-pages";
 import { contact } from "@/lib/content";
 import { MagneticCTA } from "@/components/ui/MagneticCTA";
 import { getFormAction } from "@/lib/form";
@@ -11,7 +12,8 @@ function Form() {
   const searchParams = useSearchParams();
   const slug = searchParams.get("service") ?? "";
   const matched = services.find((s) => s.slug === slug);
-  const prefill = matched?.name ?? "";
+  const matchedPage = !matched && slug ? servicePages[slug] : null;
+  const prefill = matched?.name ?? matchedPage?.eyebrow ?? "";
 
   const [selected, setSelected] = useState(prefill);
 

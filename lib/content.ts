@@ -5,20 +5,21 @@
 
 export const business = {
   name: "Higgins Electric",
-  legalName: "Higgins Electric, Inc.",
+  legalName: "HIGGINS ELECTRIC, Inc.",
   parent: "Higgins Enterprise",
   tagline: "Power. Delivered.",
-  phone: "(860) 267-7644",
-  email: "Power4U@higginsElec.com",
+  phone: "(860) 267-0842",
+  email: "Power4u@HigginsElec.com",
   address: {
-    street: "68 Middletown Ave",
+    poBox: "P.O. Box 258",
+    street: "68 Middletown Avenue",
     city: "East Hampton",
     state: "CT",
     zip: "06424",
   },
   serviceArea: "Connecticut. 30 miles around East Hampton.",
-  hours: "Monday to Friday 7:00a to 3:30p · Weekends as needed · 24/7 emergency line",
-  license: "Fully licensed and insured. State of Connecticut.",
+  hours: "Mon-Fri 7:30 am – 3 pm",
+  license: "Licensed Contractor in the State of CT (# E1-122293)",
   founded: "1982",
   ownerName: "John Higgins",
   yearsInBusiness: "40+",
@@ -31,10 +32,16 @@ export const business = {
 
 export const nav = [
   { label: "About", href: "/about" },
-  { label: "Mission", href: "/mission" },
   { label: "Services", href: "/services" },
   { label: "Hiring", href: "/hiring" },
   { label: "Contact", href: "/contact" },
+];
+
+export const serviceLinks = [
+  { label: "Commercial & Industrial Services", href: "/services/commercial-industrial" },
+  { label: "Commercial Generators – Sales & Service", href: "/services/commercial-generators" },
+  { label: "Residential Generators – Sales & Service", href: "/services/residential-generators" },
+  { label: "Residential Services", href: "/services/residential" },
 ];
 
 export const home = {
@@ -134,11 +141,25 @@ export const home = {
 
 export const about = {
   eyebrow: "About",
-  headline: "Power. Done right the first time.",
   story: [
-    "Higgins Electric is a family owned electrical contractor out of East Hampton, Connecticut. Commercial, industrial, residential. Generators to grid.",
-    "The shop runs a small fleet. Bucket trucks for high lift. Service vans for residential. A flatbed for generator installs. Crane and excavator on hand when the job calls for them.",
-    "Fully licensed and insured. Free consultations are standard. The owner is on every job. Add us to your bid list.",
+    {
+      heading: "Connecticut-based. Over thirty years in.",
+      body: "Skilled crew. Competitive pricing. Fully licensed and insured.",
+      image: "/assets/photos/john-work.png",
+      caption: "Owner on the job",
+    },
+    {
+      heading: "Trained on the new stuff. Code first.",
+      body: "Our team stays current on codes and regulations. Trained in generator design, install, and service — plus integrated controllers, microprocessors, and automated transfer gear.",
+      image: "/assets/photos/generator-front.png",
+      caption: "Generator systems",
+    },
+    {
+      heading: "Let's talk about the job.",
+      body: "Need electrical or generator work? Add us to your bid list. We'd be glad to meet.",
+      image: "/assets/photos/lift-interior.png",
+      caption: "On site",
+    },
   ],
 };
 
@@ -224,6 +245,42 @@ export const contact = {
 };
 
 export const footer = {
-  rights: `© ${new Date().getFullYear()} Higgins Electric, Inc. All rights reserved.`,
+  rights: "© Copyright 2026 | Higgins Electric, Inc. All Rights Reserved.",
   builtBy: "Site by Toaks",
+};
+
+export const privacy = {
+  eyebrow: "Privacy",
+  headline: "Privacy Policy.",
+  sub: "Short version. We don't sell your data. We only use it to answer you.",
+  sections: [
+    {
+      title: "Information We Collect",
+      body:
+        "We don't collect anything unless you choose to share it with us through the contact form. If you do, we keep your name, email, and whatever you put in the message.",
+    },
+    {
+      title: "Cookies",
+      body: "We don't use cookies.",
+    },
+    {
+      title: "Use of Information",
+      body:
+        "We use what you send us to answer your question. We don't share it with anyone else unless the law requires it.",
+    },
+    {
+      title: "Data Security",
+      body:
+        "We take reasonable steps to protect your info. The internet isn't perfect — no system is fully bulletproof — but we treat your data with care.",
+    },
+    {
+      title: "Changes",
+      body:
+        "We can update this policy anytime. If something material changes, we'll update this page.",
+    },
+    {
+      title: "Contact",
+      body: "Questions about privacy? Use the contact form and we'll get back to you.",
+    },
+  ],
 };
