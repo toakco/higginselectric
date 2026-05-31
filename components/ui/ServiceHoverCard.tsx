@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export function ServiceHoverCard({ service }: { service: Service }) {
   const [open, setOpen] = useState(false);
-  const href = service.href ?? `#${service.slug}`;
+  const href = service.href ?? `/services/${service.slug}`;
   const isRoute = href.startsWith("/");
 
   const content = (

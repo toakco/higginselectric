@@ -17,7 +17,7 @@ export function ServiceTypeSelect() {
         onChange={(e) => {
           const slug = e.target.value;
           setValue(slug);
-          if (slug) router.push(`/services#${slug}`);
+          if (slug) router.push(`/services/${slug}`);
         }}
         className="w-full cursor-pointer appearance-none border-2 border-higgins-yellow bg-higgins-black/80 px-5 py-4 pr-12 font-mono text-sm uppercase tracking-[0.2em] text-higgins-bone backdrop-blur transition-colors hover:bg-higgins-graphite focus:border-higgins-red focus:outline-none md:text-base"
       >
