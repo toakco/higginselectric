@@ -72,7 +72,7 @@ export function Hero() {
       <div className="container-edge relative mt-12 flex flex-col items-center text-center md:mt-20">
         <div
           ref={logoRef}
-          className="relative w-full max-w-[640px] bg-higgins-bone px-6 py-5 shadow-[0_0_60px_rgba(255,212,0,0.25)] md:px-10 md:py-7"
+          className="relative w-full max-w-[640px] px-6 py-5 shadow-[0_0_60px_rgba(255,212,0,0.25)] md:px-10 md:py-7"
           style={{ transformOrigin: "center" }}
         >
           <Image
