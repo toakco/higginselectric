@@ -74,7 +74,7 @@ export function GSAPTextReveal({
   return (
     <Tag ref={ref as any} className={cn("inline-block overflow-hidden", className)}>
       {units.map((u, i) => (
-        <span key={i} className="inline-block overflow-hidden align-bottom">
+        <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.2em] mb-[-0.2em]">
           <span data-split-unit className="inline-block will-change-transform">
             {u}
             {split === "words" && i < units.length - 1 ? "\u00A0" : ""}
