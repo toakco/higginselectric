@@ -50,13 +50,13 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 </MagneticCTA>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden bg-higgins-graphite">
+            <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src={service.image}
                 alt={service.name}
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-contain p-6"
+                className="object-contain"
                 priority
               />
             </div>
