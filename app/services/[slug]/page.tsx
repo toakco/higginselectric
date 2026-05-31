@@ -25,36 +25,41 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <section className="relative flex min-h-[70svh] items-end overflow-hidden bg-higgins-black pb-16 pt-32 md:pb-24 md:pt-40">
-        <Image
-          src={service.image}
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover opacity-30"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-higgins-black/60 via-higgins-black/40 to-higgins-black" />
-        <div className="container-edge relative w-full">
-          <p className="mb-6 flex items-center gap-2 text-sm uppercase tracking-[0.4em] text-higgins-yellow">
-            <Link href="/services" className="transition-opacity hover:opacity-70">
-              Services
-            </Link>
-            <span className="inline-block h-px w-4 bg-higgins-yellow/50" />
-            <span className="text-higgins-concrete">{service.name}</span>
-          </p>
-          <h1 className="max-w-[22ch] font-display text-fluid-3xl leading-[0.9] tracking-tightest text-higgins-bone">
-            <GSAPTextReveal as="span" split="words" trigger="mount">
-              {service.name}
-            </GSAPTextReveal>
-          </h1>
-          <p className="mt-6 max-w-xl text-fluid-lg leading-relaxed text-higgins-concrete">
-            {service.long}
-          </p>
-          <div className="mt-10">
-            <MagneticCTA href={`/contact?service=${service.slug}`} variant="primary">
-              Get a quote
-            </MagneticCTA>
+      <section className="bg-higgins-black pt-32 pb-16 md:pt-40 md:pb-24">
+        <div className="container-edge">
+          <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <div>
+              <p className="mb-6 flex items-center gap-2 text-sm uppercase tracking-[0.4em] text-higgins-yellow">
+                <Link href="/services" className="transition-opacity hover:opacity-70">
+                  Services
+                </Link>
+                <span className="inline-block h-px w-4 bg-higgins-yellow/50" />
+                <span className="text-higgins-concrete">{service.name}</span>
+              </p>
+              <h1 className="font-display text-fluid-3xl leading-[0.9] tracking-tightest text-higgins-bone">
+                <GSAPTextReveal as="span" split="words" trigger="mount">
+                  {service.name}
+                </GSAPTextReveal>
+              </h1>
+              <p className="mt-6 max-w-xl text-fluid-lg leading-relaxed text-higgins-concrete">
+                {service.long}
+              </p>
+              <div className="mt-10">
+                <MagneticCTA href={`/contact?service=${service.slug}`} variant="primary">
+                  Get a quote
+                </MagneticCTA>
+              </div>
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden bg-higgins-graphite">
+              <Image
+                src={service.image}
+                alt={service.name}
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-contain p-6"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
