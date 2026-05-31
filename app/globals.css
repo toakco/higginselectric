@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --higgins-black: #0a0a0a;
+  --higgins-red: #c8202c;
+  --higgins-yellow: #ffd400;
+  --higgins-bone: #f2efea;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  background: var(--higgins-black);
+  color: var(--higgins-bone);
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Lenis smooth scroll requirements */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Hide native cursor when custom cursor is active (desktop only) */
+@media (hover: hover) and (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+}
+
+/* Selection */
+::selection {
+  background: var(--higgins-yellow);
+  color: var(--higgins-black);
+}
+
+/* Scrollbar minimal */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--higgins-black);
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--higgins-red);
+}
+
+/* Grid texture utility */
+.bg-blueprint {
+  background-image:
+    linear-gradient(rgba(255, 212, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 212, 0, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px var(--higgins-bone);
+  color: transparent;
+}
+
+/* Edge-to-edge container */
+.container-edge {
+  width: 100%;
+  padding-inline: clamp(1.25rem, 3vw, 3rem);
+}
