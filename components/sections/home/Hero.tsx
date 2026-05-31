@@ -14,6 +14,21 @@ export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        const tryPlay = () => {
+          video.play().catch(() => {});
+        };
+        document.addEventListener("touchstart", tryPlay, { once: true });
+        document.addEventListener("click", tryPlay, { once: true });
+      });
+    }
+  }, []);
+
+  useEffect(() => {
     if (!logoRef.current) return;
     const ctx = gsap.context(() => {
       gsap.fromTo(
