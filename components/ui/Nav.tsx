@@ -43,7 +43,7 @@ export function Nav() {
             </Link>
           ))}
           <a
-            href={`tel:${business.phone.replace(/-/g, "")}`}
+            href={`tel:${business.phone.replace(/\D/g, "")}`}
             className="group relative inline-flex items-center gap-2 border border-higgins-bone/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.2em] text-higgins-bone transition-colors hover:border-higgins-yellow hover:text-higgins-yellow"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-higgins-red animate-spark-pulse" />
@@ -76,7 +76,7 @@ export function Nav() {
               </Link>
             ))}
             <a
-              href={`tel:${business.phone.replace(/-/g, "")}`}
+              href={`tel:${business.phone.replace(/\D/g, "")}`}
               className="mt-2 inline-flex w-fit items-center gap-2 border border-higgins-yellow px-4 py-2 text-sm tracking-widest text-higgins-yellow"
             >
               {business.phone}

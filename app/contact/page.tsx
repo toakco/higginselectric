@@ -48,7 +48,7 @@ export default function ContactPage() {
                     Call
                   </p>
                   <a
-                    href={`tel:${business.phone.replace(/-/g, "")}`}
+                    href={`tel:${business.phone.replace(/\D/g, "")}`}
                     className="mt-2 block font-display text-4xl text-higgins-bone hover:text-higgins-yellow md:text-5xl"
                   >
                     {business.phone}

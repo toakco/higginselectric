@@ -42,7 +42,7 @@ export function Footer() {
               Reach us
             </p>
             <a
-              href={`tel:${business.phone.replace(/-/g, "")}`}
+              href={`tel:${business.phone.replace(/\D/g, "")}`}
               className="block font-display text-3xl text-higgins-yellow transition-colors hover:text-higgins-bone md:text-4xl"
             >
               {business.phone}
