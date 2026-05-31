@@ -3,6 +3,7 @@
 import Image from "@/components/ui/Image";
 import { useEffect, useRef } from "react";
 import { home } from "@/lib/content";
+import { basePath } from "@/lib/basePath";
 import { GSAPTextReveal } from "@/components/gsap/GSAPTextReveal";
 import { MagneticCTA } from "@/components/ui/MagneticCTA";
 import { ServiceTypeSelect } from "@/components/ui/ServiceTypeSelect";
@@ -40,10 +41,10 @@ export function Hero() {
           loop
           muted
           playsInline
-          poster="/assets/photos/job-19.jpg"
+          poster={`${basePath}/assets/photos/job-19.jpg`}
           className="absolute inset-0 h-full w-full object-cover opacity-60"
         >
-          <source src="/assets/video/hero-lightning.mp4" type="video/mp4" />
+          <source src={`${basePath}/assets/video/hero-lightning.mp4`} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-higgins-black/70 via-higgins-black/40 to-higgins-black" />
       </div>

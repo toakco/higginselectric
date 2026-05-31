@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Anton, Inter, JetBrains_Mono } from "next/font/google";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 import { Nav } from "@/components/ui/Nav";
 import { Footer } from "@/components/ui/Footer";
 import { business } from "@/lib/content";
@@ -42,8 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body className="bg-higgins-black text-higgins-bone selection:bg-higgins-yellow selection:text-higgins-black">
         <SmoothScroll>
-          <CustomCursor />
-          <Nav />
+<Nav />
           <main className="relative">{children}</main>
           <Footer />
         </SmoothScroll>
