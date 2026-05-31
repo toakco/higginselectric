@@ -11,6 +11,7 @@ import gsap from "gsap";
 
 export function Hero() {
   const logoRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (!logoRef.current) return;
@@ -37,12 +38,14 @@ export function Hero() {
       {/* Lightning storm background video */}
       <div className="absolute inset-0">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
           poster={`${basePath}/assets/photos/job-19.jpg`}
           className="absolute inset-0 h-full w-full object-cover opacity-60"
+          onCanPlay={() => { if (videoRef.current) videoRef.current.playbackRate = 0.5; }}
         >
           <source src={`${basePath}/assets/video/hero-lightning.mp4`} type="video/mp4" />
         </video>
