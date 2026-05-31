@@ -7,12 +7,13 @@ import { MagneticCTA } from "@/components/ui/MagneticCTA";
 export const metadata = {
   title: "About · Higgins Electric",
   description:
-    "John Higgins started Higgins Electric in 1982. Same shop. Same number. Same expectations four decades later.",
+    "Connecticut-based electrical contractor. Over thirty years serving the surrounding area.",
 };
 
 export default function AboutPage() {
   return (
     <>
+      {/* Hero */}
       <section className="relative flex min-h-[80svh] items-center overflow-hidden bg-higgins-black pt-32 pb-24 md:pt-40 md:pb-32">
         <Image
           src="/assets/photos/facility-gate.jpg"
@@ -23,75 +24,73 @@ export default function AboutPage() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-higgins-black/70 via-higgins-black/60 to-higgins-black" />
+
         <div className="container-edge relative flex w-full flex-col items-center text-center">
-          <p className="mb-8 inline-flex items-center justify-center gap-3 text-sm uppercase tracking-[0.45em] text-higgins-yellow md:text-base">
+          <p className="mb-10 inline-flex items-center justify-center gap-3 text-sm uppercase tracking-[0.45em] text-higgins-yellow md:text-base">
             <span className="inline-block h-px w-6 bg-higgins-yellow" />
             {about.eyebrow}
             <span className="inline-block h-px w-6 bg-higgins-yellow" />
           </p>
-          <h1 className="mx-auto max-w-[20ch] font-display text-fluid-3xl leading-[0.9] tracking-tightest text-higgins-bone">
-            <GSAPTextReveal as="span" split="words" trigger="mount">
-              {about.headline}
+
+          <blockquote className="mx-auto max-w-[22ch] font-display text-fluid-3xl leading-[0.95] tracking-tightest text-higgins-bone">
+            <GSAPTextReveal as="span" split="words" stagger={0.05} trigger="mount">
+              {home.mission.statement}
             </GSAPTextReveal>
-          </h1>
+          </blockquote>
         </div>
       </section>
 
-      <section className="bg-higgins-graphite py-24 md:py-36">
-        <div className="container-edge grid gap-10 md:grid-cols-12">
-          <p className="text-xs uppercase tracking-[0.4em] text-higgins-yellow md:col-span-3">
-            <span className="mr-3 inline-block h-px w-10 bg-higgins-yellow align-middle" />
-            The story
-          </p>
-          <div className="space-y-8 md:col-span-9">
-            {about.story.map((p, i) => (
-              <GSAPFadeUp key={i} delay={i * 0.05}>
-                <p className="text-fluid-lg leading-relaxed text-higgins-bone/95">{p}</p>
-              </GSAPFadeUp>
-            ))}
-          </div>
-        </div>
+      {/* Story — alternating photo + paragraph blocks */}
+      <section className="bg-higgins-graphite">
+        {about.story.map((block, i) => {
+          const reverse = i % 2 === 1;
+          return (
+            <div
+              key={block.heading}
+              className="border-b border-higgins-bone/5 py-20 last:border-b-0 md:py-28"
+            >
+              <div className="container-edge grid items-center gap-12 md:grid-cols-12">
+                {/* Photo */}
+                <div className={`md:col-span-6 ${reverse ? "md:order-2" : ""}`}>
+                  <GSAPFadeUp delay={0.05}>
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-higgins-black">
+                      <Image
+                        src={block.image}
+                        alt={block.caption}
+                        fill
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                      <span className="absolute bottom-4 left-4 inline-flex items-center gap-2 bg-higgins-black/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.3em] text-higgins-yellow backdrop-blur">
+                        <span className="h-1 w-1 rounded-full bg-higgins-red" />
+                        {block.caption}
+                      </span>
+                    </div>
+                  </GSAPFadeUp>
+                </div>
+
+                {/* Copy */}
+                <div className={`md:col-span-6 ${reverse ? "md:order-1" : ""}`}>
+                  <GSAPFadeUp delay={0.1}>
+                    <p className="mb-4 inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.35em] text-higgins-yellow md:text-xs">
+                      <span className="inline-block h-px w-8 bg-higgins-yellow" />
+                      {String(i + 1).padStart(2, "0")}
+                    </p>
+                    <h2 className="font-display text-3xl leading-tight tracking-wide text-higgins-bone md:text-4xl">
+                      {block.heading}
+                    </h2>
+                    <p className="mt-5 text-lg leading-relaxed text-higgins-bone/85 md:text-xl">
+                      {block.body}
+                    </p>
+                  </GSAPFadeUp>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </section>
 
-      <section
-        id="mission"
-        className="relative overflow-hidden border-y border-higgins-bone/10 bg-higgins-black py-32 md:py-48"
-      >
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(90deg, transparent 0 64px, rgba(255,212,0,0.6) 64px 65px)",
-          }}
-        />
-        <div className="container-edge relative grid gap-12 md:grid-cols-12 md:gap-16">
-          <div className="md:col-span-4">
-            <p className="text-xs uppercase tracking-[0.4em] text-higgins-yellow">
-              <span className="mr-3 inline-block h-px w-10 bg-higgins-yellow align-middle" />
-              {home.mission.eyebrow}
-            </p>
-            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.35em] text-higgins-concrete">
-              What we exist to do
-            </p>
-          </div>
-
-          <div className="md:col-span-8">
-            <blockquote className="font-display text-fluid-3xl leading-[0.95] tracking-tightest text-higgins-bone">
-              <GSAPTextReveal as="span" split="words" stagger={0.05}>
-                {home.mission.statement}
-              </GSAPTextReveal>
-            </blockquote>
-
-            <GSAPFadeUp delay={0.2}>
-              <p className="mt-10 max-w-xl text-lg leading-relaxed text-higgins-concrete md:text-xl">
-                We want the power to work so well you forget we were there.
-              </p>
-            </GSAPFadeUp>
-          </div>
-        </div>
-      </section>
-
+      {/* Values */}
       <section className="bg-higgins-bone py-20 text-higgins-black md:py-28">
         <div className="container-edge">
           <p className="mb-6 text-xs uppercase tracking-[0.4em] text-higgins-red">
@@ -106,7 +105,9 @@ export default function AboutPage() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="mt-4 font-display text-3xl tracking-wide">{v.title}</h3>
-                  <p className="mt-3 text-lg leading-relaxed text-higgins-black/80 md:text-xl">{v.body}</p>
+                  <p className="mt-3 text-lg leading-relaxed text-higgins-black/80 md:text-xl">
+                    {v.body}
+                  </p>
                 </div>
               </GSAPFadeUp>
             ))}

@@ -4,18 +4,23 @@ import { cn } from "@/lib/utils";
 type Props = {
   className?: string;
   full?: boolean;
+  /**
+   * "light" = white logo (for dark backgrounds — default).
+   * "dark"  = black logo (for white/light backgrounds).
+   */
+  variant?: "light" | "dark";
 };
 
-export function HigginsLogo({ className, full = true }: Props) {
-  const src = "/assets/brand/Higgins-Logo-white.png";
+export function HigginsLogo({ className, full = true, variant = "light" }: Props) {
+  const src =
+    variant === "dark"
+      ? "/assets/brand/higgins-logo-black.png"
+      : "/assets/brand/higgins-logo-white.png";
 
   if (!full) {
     return (
       <span
-        className={cn(
-          "relative inline-flex h-9 w-9 items-center justify-center",
-          className
-        )}
+        className={cn("relative inline-flex h-9 w-9 items-center justify-center", className)}
       >
         <Image
           src={src}
